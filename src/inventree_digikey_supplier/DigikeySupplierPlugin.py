@@ -93,7 +93,7 @@ class DigikeySupplierPlugin(SupplierMixin, InvenTreePlugin):
     def get_import_data(self, supplier_slug: str, part_id: str):
         """Return import data for a specific part ID."""
         try:
-            return self._client.product_details(part_id)
+            return self._client.product_details(part_id).Product
         except HTTPNotFound:
             raise supplier.PartNotFoundError()
         raise supplier.PartNotFoundError()
